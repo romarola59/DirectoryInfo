@@ -1,12 +1,24 @@
 ﻿using System;
+using System.IO;
 
 namespace Directoryinfo
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            Console.WriteLine("Hello World!");
+            string miDirectorio = @"c:\";
+            DirectoryInfo dir = new DirectoryInfo(miDirectorio);
+            FileInfo[] infoFicheros = dir.GetFiles();
+            foreach (FileInfo InfoUnFich in infoFicheros)
+            {
+
+                Console.WriteLine("{0},de tamaño {1}, creado{2}",InfoUnFich.Name,InfoUnFich.Length,InfoUnFich.CreationTime);
+                Console.ReadKey();
+
+
+
+            }
         }
     }
 }
